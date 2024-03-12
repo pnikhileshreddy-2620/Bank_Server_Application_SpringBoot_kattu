@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Accounts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        input[type="button"] {
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <p>Welcome, <span th:text="${username}"></span>!</p>
+
+    <h3>List of Accounts</h3>
+
+    <table>
+        <tr>
+            <th>Account Number</th>
+            <th>Current Balance</th>
+            <th>Account Type</th>
+            <th>Customer ID</th>
+        </tr>
+        <tr th:each="mc, rowStat : ${mcList}" th:class="${rowStat.odd ? 'odd' : 'even'}">
+            <td th:text="${mc.accountNumber}"></td>
+            <td th:text="${mc.currentBalance}"></td>
+            <td th:text="${mc.accountType}"></td>
+            <td th:text="${mc.customer.customerId}"></td>
+        </tr>
+    </table>
+
+    <input type="button" value="Cancel" onclick="window.location.href='http://localhost:6898/login/adminoperations'">
+</body>
+</html>

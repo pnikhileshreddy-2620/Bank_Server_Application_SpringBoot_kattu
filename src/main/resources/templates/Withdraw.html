@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Perform Transaction</title>
+</head>
+<body>
+<p>Welcome, <span th:text="${username}"></span>!</p>
+<h2>Perform Transaction</h2>
+
+<form action="#" method="get" th:action="@{/login/withdrawmoney}">
+	<label for="accountNumber">Account Number:</label>
+    <input type="number" id="accountNumber" name="accountNumber" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+
+    <input type="submit" value="Withdraw">
+</form>
+
+
+</body>
+</html>

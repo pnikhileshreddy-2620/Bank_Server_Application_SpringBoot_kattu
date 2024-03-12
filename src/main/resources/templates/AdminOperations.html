@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Bank Applications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .nav-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>Welcome, <span th:text="${username}"></span>!</p>
+
+    <a class="nav-link" href="/login/createaccount">Create Account</a>
+    <a class="nav-link" href="/login/delete">Delete Account</a>
+    <a class="nav-link" href="/login/allaccounts">Get All Accounts</a>
+    <a class="nav-link" href="/login/allcustomers">Get All Customers</a>
+    <a class="nav-link" href="/login/deletecust">Delete Customer</a>
+    <a class="nav-link" th:href="@{/login/updatedetails}">Update Customer Details</a>
+    <a class="nav-link" href="/login/alltransactions1">All Transactions</a>
+    <a class="nav-link" href="/login/last10transactions1">Last 10 Transactions</a>
+
+
+    <button onclick="goToMainUrl()">LogOut</button>
+
+    <script>
+        function goToMainUrl() {
+            window.location.href = 'http://localhost:6898';
+        }
+    </script>
+</body>
+</html>

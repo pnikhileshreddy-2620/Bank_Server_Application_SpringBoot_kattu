@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Customer Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="button"] {
+            background-color: #2196f3;
+            color: white;
+            cursor: pointer;
+        }
+
+        p {
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Welcome, <span th:text="${username}"></span>!</p>
+
+        <h2>Update Customer Details</h2>
+
+        <form action="#" method="post" th:action="@{/login/updateDetails}">
+            <label for="customerId">Customer ID:</label>
+            <input type="number" id="customerId" name="customerId" required>
+            <br>
+            <input type="submit" value="Check Customer">
+        </form>
+
+        <p th:text="${message}"></p>
+
+        <input type="button" value="Back" onclick="window.location.href='http://localhost:6898/login/adminoperations'">
+    </div>
+</body>
+</html>

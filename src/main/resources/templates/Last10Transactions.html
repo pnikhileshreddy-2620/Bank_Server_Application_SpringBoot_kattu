@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Last 10 Transactions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a.nav-link {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Last 10 Transactions</h2>
+
+    <p>Welcome, <span th:text="${username}"></span>!</p>
+
+    <form action="#" method="get" th:action="@{/login/last10transactionsdisplay}">
+        <label for="accountNumber">Account Number:</label>
+        <input type="number" id="accountNumber" name="accountNumber" required>
+        <input type="submit" value="Get Transactions">
+    </form>
+
+    <table>
+       <tr>
+         <th>Transaction ID</th>
+         <th>Amount</th>
+         <th>Date</th>
+         <th>Type</th>
+         <th>Account Number</th>
+       </tr>
+       <tr th:each="mc:${transactionList}">
+          <td th:text="${mc.transactionId}"></td>
+          <td th:text="${mc.amount}"></td>
+          <td th:text="${mc.transactionDate}"></td>
+          <td th:text="${mc.TransactionType}"></td>
+          <td th:text="${mc.account.accountNumber}"></td>
+       </tr>
+    </table>
+    
+    <a class="nav-link" href="/login/operations">Back</a>
+
+</body>
+</html>
